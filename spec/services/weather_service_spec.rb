@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe WeatherService do
-  describe "class methods" do
+  describe "instance methods" do
     describe "#get_forecast(lat_lon)", :vcr do
       before do
         @search = WeatherService.new.get_forecast("39.74001,-104.99202")
