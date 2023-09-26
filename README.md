@@ -1,24 +1,15 @@
-# README
+## API Requests
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Retrieve Weather For a City
 
-Things you may want to cover:
+#### Resource URL
 
-* Ruby version
+```
+/api/v0/forecast
+```
 
-* System dependencies
+#### Request Paramaters
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Param | Description | Example|
+|---|---|---|
+| location | A string of a city and state | `?location=denver,co` |
