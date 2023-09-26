@@ -266,3 +266,59 @@ Accept: application/json
 }
 ```
 </details>
+
+---
+
+### `GET` Munchies + Forecast
+
+#### Resource URL
+
+```
+/api/v1/munchies
+```
+
+#### Query Paramaters
+
+| Param | Data Type | Description | Example|
+|---|---|---|---|
+| **destination** | _string_ | A string of a city and state | `?destination=pueblo,co` |
+| **food** | _string_ | A type of cuisine | `?food=italian` |
+
+#### Responses
+
+<details>
+
+<summary>🟢 200: Successful Response</summary>
+
+**Request**
+
+```
+GET /api/v0/munchies?destination=pueblo,co&food=italian
+Content-Type: application/json
+Accept: application/json
+```
+
+**Response**
+
+```json
+{
+  "data": {
+    "id": "null",
+    "type": "munchie",
+    "attributes": {
+      "destination_city": "Pueblo, CO",
+      "forecast": {
+        "summary": "Cloudy with a chance of meatballs",
+        "temperature": "83"
+      },
+      "restaurant": {
+        "name": "La Forchetta Da Massi",
+        "address": "126 S Union Ave, Pueblo, CO 81003",
+        "rating": 4.5,
+        "reviews": 148
+      }
+    }
+  }
+}
+```
+</details>
