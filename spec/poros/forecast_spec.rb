@@ -1,8 +1,10 @@
 require "rails_helper"
 
-describe Forecast, :vcr do
+describe Forecast do
   before do
-    @weather_data = WeatherService.new.get_forecast("39.74001,-104.99202")
+    VCR.use_cassette("weather_for_denver_lat_lon") do
+      @weather_data = WeatherService.new.get_forecast("39.74001,-104.99202")
+    end
   end
 
   describe "initialization" do

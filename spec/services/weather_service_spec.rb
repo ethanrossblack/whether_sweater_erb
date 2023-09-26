@@ -2,10 +2,13 @@ require "rails_helper"
 
 describe WeatherService do
   describe "instance methods" do
-    describe "#get_forecast(lat_lon)", :vcr do
+    describe "#get_forecast(lat_lon)" do
+
       before do
-        @search = WeatherService.new.get_forecast("39.74001,-104.99202")
-        expect(@search).to be_a Hash
+        VCR.use_cassette("weather_for_denver_lat_lon") do
+          @search = WeatherService.new.get_forecast("39.74001,-104.99202")
+          expect(@search).to be_a Hash
+        end
       end
 
       it "returns the current forecast" do
