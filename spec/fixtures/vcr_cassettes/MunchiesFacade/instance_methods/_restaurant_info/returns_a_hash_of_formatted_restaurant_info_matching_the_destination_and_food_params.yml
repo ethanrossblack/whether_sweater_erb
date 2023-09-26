@@ -1,0 +1,157 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?attributes=&categories=italian&limit=1&location=pueblo,co&sort_by=best_match
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer OJ5FMbAs8wszNySfbNI3oJmthmulLqPNchSOGjZnP0MQUhfTMN0N9zEbM3Hp0nmIPK0IfzdJH5Uxf9pL9_U9E6fZrjfMLvQGwyqRxmeH5I6cNiIFv0gyAHZh6WISZXYx
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Routing-Service:
+      - routing-main--useast1-7d948dbbb8-tfmrf; site=public_api_v3
+      Ratelimit-Dailylimit:
+      - '500.0'
+      X-Zipkin-Id:
+      - 5b9cc0e271474bf4
+      X-B3-Sampled:
+      - '0'
+      Server:
+      - envoy
+      Ratelimit-Remaining:
+      - '478.0'
+      Ratelimit-Resettime:
+      - '2023-09-27T00:00:00+00:00'
+      X-Mode:
+      - ro
+      X-Proxied:
+      - 10-65-76-231-useast1aprod
+      X-Extlb:
+      - 10-65-76-231-useast1aprod
+      Cache-Control:
+      - max-age=0, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 26 Sep 2023 18:01:34 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-chi-klot8100147-CHI
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "ohD11-Q1y0Y3tNy0LjyTqw", "alias": "la-forchetta-da-massi-pueblo",
+        "name": "La Forchetta Da Massi", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/wvsyEbbKI049FMFcfSk0kQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/la-forchetta-da-massi-pueblo?adjust_creative=tPUB4yfwJ5auNM-sD7Sz5g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=tPUB4yfwJ5auNM-sD7Sz5g",
+        "review_count": 225, "categories": [{"alias": "italian", "title": "Italian"},
+        {"alias": "wine_bars", "title": "Wine Bars"}], "rating": 4.5, "coordinates":
+        {"latitude": 38.2645118031982, "longitude": -104.613206125796}, "transactions":
+        ["delivery"], "price": "$$", "location": {"address1": "126 S Union Ave", "address2":
+        "", "address3": null, "city": "Pueblo", "zip_code": "81003", "country": "US",
+        "state": "CO", "display_address": ["126 S Union Ave", "Pueblo, CO 81003"]},
+        "phone": "+17192530126", "display_phone": "(719) 253-0126", "distance": 3543.313323844259}],
+        "total": 17, "region": {"center": {"longitude": -104.5733642578125, "latitude":
+        38.27035217485165}}}'
+  recorded_at: Tue, 26 Sep 2023 18:01:34 GMT
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?attributes=&categories=italian&limit=1&location=pueblo,co&sort_by=best_match
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer OJ5FMbAs8wszNySfbNI3oJmthmulLqPNchSOGjZnP0MQUhfTMN0N9zEbM3Hp0nmIPK0IfzdJH5Uxf9pL9_U9E6fZrjfMLvQGwyqRxmeH5I6cNiIFv0gyAHZh6WISZXYx
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Routing-Service:
+      - routing-main--useast1-7d948dbbb8-tfmrf; site=public_api_v3
+      X-Zipkin-Id:
+      - 3e3730fd98d2a9f6
+      X-B3-Sampled:
+      - '0'
+      Ratelimit-Dailylimit:
+      - '500.0'
+      Ratelimit-Remaining:
+      - '477.0'
+      Server:
+      - envoy
+      Ratelimit-Resettime:
+      - '2023-09-27T00:00:00+00:00'
+      X-Mode:
+      - ro
+      X-Proxied:
+      - 10-65-174-138-useast1bprod
+      X-Extlb:
+      - 10-65-174-138-useast1bprod
+      Cache-Control:
+      - max-age=0, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 26 Sep 2023 18:01:35 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-chi-klot8100022-CHI
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "ohD11-Q1y0Y3tNy0LjyTqw", "alias": "la-forchetta-da-massi-pueblo",
+        "name": "La Forchetta Da Massi", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/wvsyEbbKI049FMFcfSk0kQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/la-forchetta-da-massi-pueblo?adjust_creative=tPUB4yfwJ5auNM-sD7Sz5g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=tPUB4yfwJ5auNM-sD7Sz5g",
+        "review_count": 225, "categories": [{"alias": "italian", "title": "Italian"},
+        {"alias": "wine_bars", "title": "Wine Bars"}], "rating": 4.5, "coordinates":
+        {"latitude": 38.2645118031982, "longitude": -104.613206125796}, "transactions":
+        ["delivery"], "price": "$$", "location": {"address1": "126 S Union Ave", "address2":
+        "", "address3": null, "city": "Pueblo", "zip_code": "81003", "country": "US",
+        "state": "CO", "display_address": ["126 S Union Ave", "Pueblo, CO 81003"]},
+        "phone": "+17192530126", "display_phone": "(719) 253-0126", "distance": 3543.313323844259}],
+        "total": 17, "region": {"center": {"longitude": -104.5733642578125, "latitude":
+        38.27035217485165}}}'
+  recorded_at: Tue, 26 Sep 2023 18:01:35 GMT
+recorded_with: VCR 6.2.0
