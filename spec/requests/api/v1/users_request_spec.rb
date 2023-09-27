@@ -143,4 +143,110 @@ describe "Users API Endpoint" do
       end
     end
   end
+
+  describe "User Login (POST '/api/v1/sessions')" do
+    before do
+      @user = User.create!(email: "ethan@ethan.ethan", password: "password", password_confirmation: "password")
+    end
+
+    describe "happy path" do
+      it "returns an existing user's api_key if proper email and password are send in the body of a POST request" do
+        user_info = {
+          email: @user.email,
+          password: "password"
+        }
+        headers = {"CONTENT_TYPE": "application/json"}
+
+        post "/api/v1/sessions", headers: headers, params: user_info.to_json
+        
+        expect(response).to be_successful
+        expect(response.status).to eq(200)
+        
+        response_body = JSON.parse(response.body, symbolize_names: true)
+        expect(response_body).to be_a Hash
+
+        expect(response_body.keys).to contain_exactly(:data)
+        
+        response_data = response_body[:data]
+
+        expect(response_data).to be_a Hash
+        expect(response_data.keys).to contain_exactly(:type, :id, :attributes)
+
+        expect(response_data[:type]).to eq("users")
+        
+        expect(response_data[:id]).to be_a String
+        expect(response_data[:id].to_i).to eq(@user.id)
+
+        expect(response_data[:attributes]).to be_a Hash
+        
+        attributes = response_data[:attributes]
+
+        expect(attributes.keys).to contain_exactly(:email, :api_key)
+        expect(attributes[:email]).to eq(@user.email)
+        expect(attributes[:api_key]).to eq(@user.api_key)
+      end
+    end
+    
+    describe "sad path" do
+      it "returns an error if a user doesn't exist" do
+        user_info = {
+          email: "idontexist@hotmail.net",
+          password: "password"
+        }
+        headers = {"CONTENT_TYPE": "application/json"}
+
+        post "/api/v1/sessions", headers: headers, params: user_info.to_json
+        expect(response).to_not be_successful
+        expect(response.status).to eq(404)
+        
+        response_body = JSON.parse(response.body, symbolize_names: true)
+        expect(response_body).to be_a Hash
+
+        expect(response_body.keys).to contain_exactly(:errors)
+        
+        response_data = response_body[:errors]
+
+        expect(response_data).to be_an Array
+        expect(response_data.length).to eq(1)
+        error = response_data.first
+
+        expect(error).to be_a Hash
+        expect(error.keys).to contain_exactly(:status, :title, :detail)
+
+        expect(error[:status]).to eq("404")
+        expect(error[:title]).to eq("User Not Found")
+        expect(error[:detail]).to eq("Couldn't find a User with the given email address")
+      end
+
+      it "returns a generic error if a password doesn't match an existing email" do
+        user_info = {
+          email: @user.email,
+          password: "not a proper password"
+        }
+        headers = {"CONTENT_TYPE": "application/json"}
+
+        post "/api/v1/sessions", headers: headers, params: user_info.to_json
+        expect(response).to_not be_successful
+        expect(response.status).to eq(401)
+        
+        response_body = JSON.parse(response.body, symbolize_names: true)
+        expect(response_body).to be_a Hash
+
+        expect(response_body.keys).to contain_exactly(:errors)
+        
+        response_data = response_body[:errors]
+
+        expect(response_data).to be_an Array
+        expect(response_data.length).to eq(1)
+        error = response_data.first
+
+        expect(error).to be_a Hash
+        expect(error.keys).to contain_exactly(:status, :title, :detail)
+
+        expect(error[:status]).to eq("401")
+        expect(error[:title]).to eq("Unauthorized")
+        expect(error[:detail]).to eq("User credentials are incorrect")
+      end
+    end
+  end
 end
